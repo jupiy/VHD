@@ -1,5 +1,7 @@
 # VHD
-Virtual FAT32 disk
+
+## Introduction
+The project VHD is going to implement basic functions to handle files in Virtual FAT32 disk.
 
 ## Environment
 1. OS: OS X Yosemite Version 10.10.3
@@ -14,9 +16,9 @@ Virtual FAT32 disk
   ~~~
 2. use Windows to generate a .vhd file.
   * the format should be FunAT32
-  * the file size should not be too large. 20MB is recommended
+  * the file size should not be too large; 20MB is recommended
   * the number of bytes per block is recommended to be 512
-  * put the .vhd file into the repo
+  * the .vhd file should be put into the repo
 
 3. compile VHD.c
 
@@ -24,7 +26,7 @@ Virtual FAT32 disk
   gcc -g -o VHD VHD.c
   ~~~
   
-4. run the executable file, follow the instructions.
+4. run the executable file, and follow the instructions:
 
   ~~~
   ./VHD
@@ -39,7 +41,7 @@ Virtual FAT32 disk
 
 ## Variables Specification
 1. FILE* fp ---- file pointer for .vhd file
-2. word offSet ---- to describe the offset of fp
+2. word offSet ---- the offset of fp
 3. byte buff_block[32768] ---- the buffer of a block
 4. byte buff_byte ---- the buffer of a byte
 5. hWord FAT[32768] ---- the FAT stored in memory
@@ -110,7 +112,7 @@ Virtual FAT32 disk
 19. getTime: to get the current time, transform it and store it in a struct
 20. writeTime: to write the time and date into the root directory in .vhd file
 
-## Bugs Exist
+## Existing Bugs
 1. After a .txt file is written into .vhd file, there would be an extra half_word (0x0AFF) appended to the original file.
 2. The file of 2 bytes would become 512 bytes after being written into and extracted from VHD.
 3. Some constants are used in the program, so the program may not be universal to all FAT32 VHDs.
